@@ -80,8 +80,8 @@ extension PerformanceTests {
     ("testBigDataDecodesCorrectly", testBigDataDecodesCorrectly)
   ]
 }
-extension RawRepresentable {
-  static var allTests: [(String, (RawRepresentable) -> () throws -> Void)] = [
+extension RawRepresentableTests {
+  static var allTests: [(String, (RawRepresentableTests) -> () throws -> Void)] = [
     ("testStringEnum", testStringEnum),
     ("testIntEnum", testIntEnum)
   ]
@@ -108,9 +108,9 @@ XCTMain([
   testCase(EquatableTests.allTests),
   testCase(ExampleTests.allTests),
   testCase(OptionalPropertyDecodingTests.allTests),
-  testCase(PListDecodingTests.allTests),
+//   testCase(PListDecodingTests.allTests),
   testCase(PerformanceTests.allTests),
-  testCase(RawRepresentable.allTests),
+  testCase(RawRepresentableTests.allTests),
   testCase(SwiftDictionaryDecodingTests.allTests),
   testCase(TypeTests.allTests),
 ])

@@ -38,6 +38,15 @@ public extension JSON {
         self = .number(v)
       }
 
+    case let v as Bool:
+      self = .bool(v)
+    case let v as Int:
+      self = .number(NSNumber(value: v))
+    case let v as Double:
+      self = .number(NSNumber(value: v))
+    case let v as Float:
+      self = .number(NSNumber(value: v))
+
     default:
       self = .null
     }
