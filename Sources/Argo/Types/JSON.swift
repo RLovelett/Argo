@@ -31,12 +31,24 @@ public extension JSON {
     case let v as String:
       self = .string(v)
 
+#if swift(>=4.0)
+    case let v as Bool where type(of: json) == type(of: NSNumber(value: true)),
+         let v as Bool where type(of: json) == type(of: true):
+        self = .bool(v)
+    case let v as Int:
+        self = .number(NSNumber(value: v))
+    case let v as Double:
+        self = .number(NSNumber(value: v))
+    case let v as Float:
+        self = .number(NSNumber(value: v))
+#else
     case let v as NSNumber:
       if v.isBool {
         self = .bool(v.boolValue)
       } else {
         self = .number(v)
       }
+#endif
 
     default:
       self = .null
